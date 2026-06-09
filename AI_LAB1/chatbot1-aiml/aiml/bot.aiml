@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+
+  <!-- ==================== GREETINGS ==================== -->
+
+  <category>
+    <pattern>HELLO</pattern>
+    <template>Hello! How can I help you today?</template>
+  </category>
+
+  <category>
+    <pattern>HELLO *</pattern>
+    <template>Hello there! Nice to meet you.</template>
+  </category>
+
+  <category>
+    <pattern>HI</pattern>
+    <template>Hi! Great to see you. What's on your mind?</template>
+  </category>
+
+  <category>
+    <pattern>HI *</pattern>
+    <template>Hi there! How can I assist you?</template>
+  </category>
+
+  <category>
+    <pattern>HEY</pattern>
+    <template>Hey! What can I do for you?</template>
+  </category>
+
+  <category>
+    <pattern>HEY *</pattern>
+    <template>Hey there! How can I help?</template>
+  </category>
+
+  <category>
+    <pattern>HOW ARE YOU</pattern>
+    <template>I'm doing great, thanks for asking! How about you?</template>
+  </category>
+
+  <category>
+    <pattern>HOW ARE YOU *</pattern>
+    <template>I'm doing well! Thanks for asking. How are you doing?</template>
+  </category>
+
+  <category>
+    <pattern>HOW DO YOU DO</pattern>
+    <template>I'm doing just fine, thank you! How about yourself?</template>
+  </category>
+
+  <category>
+    <pattern>GOOD MORNING</pattern>
+    <template>Good morning! Hope you have a wonderful day ahead.</template>
+  </category>
+
+  <category>
+    <pattern>GOOD AFTERNOON</pattern>
+    <template>Good afternoon! How is your day going?</template>
+  </category>
+
+  <category>
+    <pattern>GOOD EVENING</pattern>
+    <template>Good evening! How can I help you tonight?</template>
+  </category>
+
+  <!-- ==================== MEMORY & PERSONALIZATION ==================== -->
+
+  <!-- Name -->
+  <category>
+    <pattern>MY NAME IS *</pattern>
+    <template>
+      <set name="username"><star/></set>
+      Nice to meet you, <get name="username"/>! I'll remember your name.
+    </template>
+  </category>
+
+  <category>
+    <pattern>CALL ME *</pattern>
+    <template>
+      <set name="username"><star/></set>
+      Sure thing, <get name="username"/>! I'll call you that from now on.
+    </template>
+  </category>
+
+  <category>
+    <pattern>WHAT IS MY NAME</pattern>
+    <template>
+      <condition name="username">
+        <li value="unknown">I don't know your name yet. Tell me with "My name is ...".</li>
+        <li>Your name is <get name="username"/>.</li>
+      </condition>
+    </template>
+  </category>
+
+  <category>
+    <pattern>DO YOU KNOW MY NAME</pattern>
+    <template>
+      <condition name="username">
+        <li value="unknown">I don't know your name yet. You can tell me with "My name is ...".</li>
+        <li>Yes! Your name is <get name="username"/>.</li>
+      </condition>
+    </template>
+  </category>
+
+  <!-- Favorite color -->
+  <category>
+    <pattern>MY FAVORITE COLOR IS *</pattern>
+    <template>
+      <set name="favcolor"><star/></set>
+      Got it! I'll remember that your favorite color is <get name="favcolor"/>.
+    </template>
+  </category>
+
+  <category>
+    <pattern>MY FAVOURITE COLOR IS *</pattern>
+    <template>
+      <set name="favcolor"><star/></set>
+      Got it! I'll remember that your favourite color is <get name="favcolor"/>.
+    </template>
+  </category>
+
+  <category>
+    <pattern>WHAT IS MY FAVORITE COLOR</pattern>
+    <template>
+      <condition name="favcolor">
+        <li value="unknown">I don't know your favorite color yet. Tell me with "My favorite color is ...".</li>
+        <li>Your favorite color is <get name="favcolor"/>.</li>
+      </condition>
+    </template>
+  </category>
+
+  <!-- Hobbies / preferences -->
+  <category>
+    <pattern>I LIKE *</pattern>
+    <template>
+      <set name="hobby"><star/></set>
+      That's great! I'll remember that you like <get name="hobby"/>.
+    </template>
+  </category>
+
+  <category>
+    <pattern>I LOVE *</pattern>
+    <template>
+      <set name="hobby"><star/></set>
+      Wonderful! I'll keep in mind that you love <get name="hobby"/>.
+    </template>
+  </category>
+
+  <category>
+    <pattern>WHAT DO I LIKE</pattern>
+    <template>
+      <condition name="hobby">
+        <li value="unknown">I don't know what you like yet. Tell me with "I like ...".</li>
+        <li>You told me that you like <get name="hobby"/>.</li>
+      </condition>
+    </template>
+  </category>
+
+  <category>
+    <pattern>WHAT ARE MY PREFERENCES</pattern>
+    <template>
+      Here is what I know about you:
+      <condition name="username">
+        <li value="unknown"></li>
+        <li> Your name is <get name="username"/>.</li>
+      </condition>
+      <condition name="favcolor">
+        <li value="unknown"></li>
+        <li> Your favorite color is <get name="favcolor"/>.</li>
+      </condition>
+      <condition name="hobby">
+        <li value="unknown"></li>
+        <li> You like <get name="hobby"/>.</li>
+      </condition>
+    </template>
+  </category>
+
+  <!-- ==================== FALLBACK ==================== -->
+
+  <category>
+    <pattern>*</pattern>
+    <template>I'm not sure how to respond to that. Try saying "hello", telling me your name with "My name is ...", or sharing a preference like "I like ...".</template>
+  </category>
+
+</aiml>
